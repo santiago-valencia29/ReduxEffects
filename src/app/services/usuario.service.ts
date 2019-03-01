@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { url } from 'inspector';
+import {map} from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,12 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
 
-  getUser(){
+  getUsers (){
 
-    return this.http.get(`${this.url}/users?per_page=6`);
+    return this.http.get(`${this.url}/users?per_page=6`)
+          .pipe(
+            map(resp=> resp['data'])//puedo escoger que viene del json
+          );
   }
 
 
