@@ -7,8 +7,10 @@ import { HttpClientModule } from "@angular/common/http";
 
 //NgRx
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { appReducers } from './store/app.reducer';
+import { effectsArr } from './store/effects/index';
 
 //rutas
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -32,6 +35,7 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot(effectsArr),
     StoreDevtoolsModule.instrument({
     maxAge:25,
     logOnly:environment.production,
