@@ -15,7 +15,7 @@ export class UsuarioService {
 
   getUsers (){
 
-    return this.http.get(`${this.url}/users?per_page=6`)
+    return this.http.get(`${this.url}/users?per_page=6&delay=0.2`)
           .pipe(
             map(resp=> resp['data'])//puedo escoger que viene del json
           );
