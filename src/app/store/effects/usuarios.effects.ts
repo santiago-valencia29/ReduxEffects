@@ -22,8 +22,8 @@ export class UsuariosEffects {
           switchMap( ()=> {
               return this.usuariosService.getUsers()
                   .pipe(
-                      map(users => new usuariosActions.CargarUsuarioSuccess(users)),
-                      catchError(error => of( new usuariosActions.CargarUsuarioFail(error))  )
+                      map(users => new usuariosActions.CargarUsuariosSuccess(users)),
+                      catchError(error => of( new usuariosActions.CargarUsuariosFail(error))  )
                   )
           })
     )
